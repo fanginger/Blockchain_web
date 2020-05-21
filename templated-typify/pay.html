@@ -7,15 +7,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="assets/css/main.css" />
-
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
         <!-- <script type="text/javascript" src="jquery.qrcode.min.js"></script>
          -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="jquery-qrcode-0.17.0.min.js"></script>
+
 	</head>
 	<body>
-
-		<!-- mywallet -->
+        
+        <!-- mywallet -->
         <section id="two" class="wrapper style2 special">
             <div class="inner narrow">
                 <header>
@@ -33,12 +33,12 @@
                 </form>
                 <form action="#">
                     <div  style='display: none' class="form-control" id="recieve_by">
-                        <label for="password">接收人</label>
-                        <input name="message" id="message" ></input>
+                        <label >接收人</label>
+                        <input name="message"  ></input>
                         <label for="password">金額</label>
-                        <input name="message" id="message" ></input>
+                        <input name="message"  ></input>
                         <label for="password">附註</label>
-                        <input name="message" id="message" ></input>
+                        <input name="message"  ></input>
                         <p></p>
                         
                         <ul class="actions" action="#"></ul>
@@ -48,40 +48,29 @@
                     </div>
                 </form>
                 
-                <form action="#">
-                    <!-- style='display: none' -->
-                    <div  class="form-control" id="password">
-
-                        <p></p>
-                        <div id="qrcode"></div>
-                   
-                        
-                    </div>
-                </form>
+                
             </div>
         </section>
 
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="copyright">
-					&copy; Untitled. Design: <a href="http://templated.co/">TEMPLATED</a>.
-				</div>
-			</footer>
+        <style>
+                .nav-item a{
+            color: black;
+            }
+        </style>
 
 
     <!-- Scripts -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="jquery-qrcode-0.17.0.min.js"></script>
+         
             <script src="assets/js/jquery.min.js"></script>
             <script>
                 $(document).ready(function(){
                     $("#click_recieve").click(function(){
                         $("#recieve_by").fadeToggle();
                     });
-                    $("#clickpay").click(function(){
-                        $("#password").fadeToggle();
-                    });
+                    // $("#clickpay").click(function(){
+                    //     $("#password").fadeToggle();
+                    // });
                     $("#aboutme").click(function(){
                         $("#aboutme_detail").fadeToggle();
                     });

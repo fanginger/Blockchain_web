@@ -7,7 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
 	</head>
 	<body>
 
@@ -20,7 +21,7 @@
 					<header>
 						<h2>Welcome</h2>
 					</header>
-					<form class="grid-form" method="post" action="home.html">
+					<form class="grid-form" method="post">
 						<ul class="actions ">
                             <li>
                                 <label for="name">Account</label>
@@ -30,16 +31,13 @@
                             <p>
                                 <li>
                                     <label for="email">Password</label>
-                                    <input name="email" id="email" type="email">
+                                    <input  name="name" id="X-API-key" type="text">
                                 </li>
                             </p>
    
-                            <li><input value="sign up" type="submit" ></li>
+                            <li><input id='signup' value="sign up"  onclick="send()"></li>
                             
                             <li><input value="login" type="submit"></li>
-
-                            
-                            <!-- TODO: 加入記住我 -->
                         </ul>
                         
                     </form>
@@ -48,15 +46,67 @@
 				</div>
 			</section>
 
-	
-	
+			<script>
+				function send(){
+					const api = document.getElementById("X-API-key").value;
+					const data = {
+						"name": document.getElementById("name").value,
+						"description": "Zhushan light eID", 
+						"pub_key":""
+					}
+					console.log(data)
+					$.ajax({
+					type: "POST",
+					url: 'http://3.87.137.58:8888/new_did',
+					data:JSON.stringify(data),
+					headers:{
+						'contentType' :'application/json',
+						'X-API-Key' :api
+					},
+					contentType :'application/json',
+					success: function(response){
+						alert(response);
+						console.log(response)
+					},
+					error: function (error) {
+						alert("Cannot get data");
+					}
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="copyright">
-					&copy; Untitled. Design: <a href="http://templated.co/">TEMPLATED</a>.
-				</div>
-			</footer>
+				
+				});
+			
+
+				}
+				
+				
+
+			</script>
+			<style>
+				#signup{
+					-moz-appearance: none;
+					-webkit-appearance: none;
+					-ms-appearance: none;
+					appearance: none;
+					-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+					-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+					-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+					transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+					border-radius: 0;
+					border: 0;
+					cursor: pointer;
+					display: inline-block;
+					height: 2.85em;
+					line-height: 2.95em;
+					padding: 0 1.5em;
+					text-align: center;
+					text-decoration: none;
+					text-transform: uppercase;
+					white-space: nowrap;
+					padding-left: 1.35em;
+					color: #f7f7f7;
+					background-color: #555 !important;     
+				}
+			</style>
 
 	
 
